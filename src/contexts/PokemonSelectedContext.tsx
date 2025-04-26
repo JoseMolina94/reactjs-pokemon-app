@@ -1,12 +1,20 @@
 'use client'
 
-import { createContext, ReactNode, useState } from "react";
-
-export const PokemonSelectedContext = createContext<any>(null)
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
 
 type ReservationContextProviderProps = {
   children: ReactNode
 }
+
+type PokemonSelectedContextValues = {
+  pokemonSelected: string
+  setPokemonSelected: Dispatch<SetStateAction<string>> | ((val: string) => void)
+}
+
+export const PokemonSelectedContext = createContext<PokemonSelectedContextValues>({
+  pokemonSelected: '',
+  setPokemonSelected: (val: string) => {}
+})
 
 export default function PokemonSelectedContextProvider ({ children }: ReservationContextProviderProps) {
   const [pokemonSelected, setPokemonSelected] = useState<string>('')
