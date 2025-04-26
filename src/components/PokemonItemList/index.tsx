@@ -5,6 +5,7 @@ import useGetPokemonByUrl from "@/hooks/useGetPokemonByUrl"
 import { PokemonListItem, PokemonType } from "@/types/Pokemon"
 import { PokemonSelectedContext } from "@/contexts/PokemonSelectedContext"
 import PokemonStats from "../PokemonStats"
+import PokemonAbilities from "../PokemonAbilities"
 
 export default function PokemonItemList(props: PokemonListItem) {
   const { url } = props
@@ -27,7 +28,7 @@ export default function PokemonItemList(props: PokemonListItem) {
     }
   }, [pokemonSelected])
 
-  return (!loadingPokemon &&
+  return ((!loadingPokemon && !pokemonError) &&
     <>
       <tr
         className={`border-b table-item text-black ${pokemonSelected === pokemonData.id && 'bg-gray-200 text-black border-b-0'} `}
@@ -77,7 +78,7 @@ export default function PokemonItemList(props: PokemonListItem) {
 
                 <PokemonStats 
                   stats={[
-                    ...pokemonData?.stats,
+                    ...pokemonData?.stats || [],
                     {
                       base_stat: `${pokemonData.weight} Kg`,
                       stat: {
@@ -87,14 +88,12 @@ export default function PokemonItemList(props: PokemonListItem) {
                   ]}
                 />
 
-                <div>
-                  <h3 className="font-bold col-span-2 mb-2">Abilities</h3>
-                  <ul>
-                    {pokemonData?.abilities.map((ability: any, index: number) => (
-                      <li key={index} className="capitalize">{ability.ability.name}</li>
-                    ))}
-                  </ul>
+                <div className="col-span-2 border p-2 rounded-sm" >
+                  <PokemonAbilities
+                    abilities={pokemonData?.abilities || []}
+                  />
                 </div>
+
               </div>
             </div>
             

@@ -7,8 +7,6 @@ type PokemonStatsProps = {
 export default function PokemonStats(props: PokemonStatsProps) {
   const { stats } = props
 
-  console.log("SSSS", stats)
-
   return (
     <div className="border p-2 rounded-sm">
       <h3 className="font-bold mb-2">Stats</h3>

@@ -1,3 +1,5 @@
+import { CommonData } from "."
+
 export type PokemonListItem = {
   name: string
   url: string
@@ -5,17 +7,11 @@ export type PokemonListItem = {
 
 export type PokemonType = {
   slot: number
-  type: {
-    name: string
-    url: string
-  }
+  type: CommonData
 }
 
 export type PokemonStat = {
   base_stat: number | string
   effort?: number
-  stat: {
-    name: string
-    url?: string
-  }
+  stat: CommonData
 }
