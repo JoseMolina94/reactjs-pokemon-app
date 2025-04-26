@@ -3,15 +3,15 @@ import PokemonItemList from "../PokemonItemList"
 
 type PokemonListProps = {
   list: PokemonListItem[]
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export default function PokemonList (props: PokemonListProps) {
-  const { list, isLoading } = props
+  const { list, isLoading = false } = props
 
   return ( !isLoading &&
     <div>
-      <table className="w-full border-1 rounded-md" >
+      <table className="w-full border-1 rounded-md bg-white" >
         <thead className="table-header">
           <tr>
             <th className="table-header-item border-r">Order</th>

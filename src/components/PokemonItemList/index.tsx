@@ -30,7 +30,7 @@ export default function PokemonItemList(props: PokemonListItem) {
   return (!loadingPokemon &&
     <>
       <tr
-        className={`border-b table-item ${pokemonSelected === pokemonData.id && 'bg-gray-200 text-black border-b-0'} `}
+        className={`border-b table-item text-black ${pokemonSelected === pokemonData.id && 'bg-gray-200 text-black border-b-0'} `}
         onDoubleClick={handleDoubleClick}
       >
         <td className="table-item-cell w-20 text-center">
