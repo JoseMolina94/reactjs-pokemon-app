@@ -22,7 +22,7 @@ export default function AbilityItem (props: AbilityItemProps) {
       className="capitalize font-medium cursor-pointer"
       onClick={onClick}
     >
-      {abilityData?.name}
+      {ability?.ability?.name}
     </li>
   )
 }
