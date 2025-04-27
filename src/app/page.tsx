@@ -16,7 +16,7 @@ export default function Home() {
   })
 
   return (
-    <div className="w-full gap-2 px-80 py-12">
+    <div className="w-full gap-2 md:px-20 lg:px-50 xl:px-60 py-12">
       <h1 className="text-center text-5xl font-bold mb-2" >
         Pokemón List
       </h1>

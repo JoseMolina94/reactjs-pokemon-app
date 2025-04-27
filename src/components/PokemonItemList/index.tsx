@@ -33,6 +33,7 @@ export default function PokemonItemList(props: PokemonListItem) {
       <tr
         className={`border-b table-item text-black ${pokemonSelected === pokemonData.id && 'bg-gray-200 text-black border-b-0'} `}
         onDoubleClick={handleDoubleClick}
+        onTouchEnd={handleDoubleClick}
       >
         <td className="table-item-cell w-20 text-center">
           {pokemonData?.id}
@@ -74,29 +75,33 @@ export default function PokemonItemList(props: PokemonListItem) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 p-4 ">
+              <div className="grid xs:grid-cols-1 md:grid-cols-3 gap-4 p-4 ">
 
-                <PokemonStats 
-                  stats={[
-                    ...pokemonData?.stats || [],
-                    {
-                      base_stat: `${pokemonData.weight} Kg`,
-                      stat: {
-                        name: "weight"
+                <div className="col-span-1">
+                  <PokemonStats
+                    stats={[
+                      ...pokemonData?.stats || [],
+                      {
+                        base_stat: `${pokemonData.weight} Kg`,
+                        stat: {
+                          name: "weight"
+                        }
                       }
-                    }
-                  ]}
-                />
+                    ]}
+                  />
+                </div>
 
-                <div className="col-span-2 border p-2 rounded-sm" >
+
+                <div className="xs:col-span-1 md:col-span-2 border p-2 rounded-sm" >
                   <PokemonAbilities
                     abilities={pokemonData?.abilities || []}
                   />
                 </div>
 
               </div>
+
             </div>
-            
+
           </td>
         </tr>
       )}

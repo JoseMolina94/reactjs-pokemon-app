@@ -21,7 +21,7 @@ export default function PokemonAbilities(props: PokemonAbilitiesProps) {
   return (
     <div className="w-full">
       <h3 className="font-bold col-span-2 mb-2">Abilities</h3>
-      <div className="grid w-full gap-1 grid-cols-6">
+      <div className="grid w-full gap-4 xs:grid-cols-1 md:grid-cols-6">
 
         <ul className="col-span-2">
           {abilities.map((ability: TAbilityItem, index: number) => (
@@ -35,7 +35,7 @@ export default function PokemonAbilities(props: PokemonAbilitiesProps) {
 
         {
           abilitySelected &&
-            <div className="col-span-4">
+            <div className="col-span-4 border rounded-sm py-1.5 px-2 ">
               <h3 className="font-bold text-2xl mb-2 capitalize" >{abilitySelected?.name}</h3>
               <p className="text-sm">
                 {showEffect()}
